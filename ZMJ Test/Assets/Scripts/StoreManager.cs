@@ -18,7 +18,6 @@ public class StoreManager : SingletonPatternMono<StoreManager>
     public PlayerInfoData playerInfoData;
 
     [Header("Gift Tips")]
-    public GameObject giftTips;
     public GameObject giftInfoTips;
 
     [Header("UIComponent_Text")]
@@ -105,19 +104,19 @@ public class StoreManager : SingletonPatternMono<StoreManager>
 
         switch (_currency)
         {
-            case Currency.铜:
+            case Currency.copper:
                 if (JsonReader.Instance.playerInfoData.copper >= _cost)
                     JsonReader.Instance.playerInfoData.copper -= _cost;
                 else
                     isBought = false;
                 break;
-            case Currency.银:
+            case Currency.sliver:
                 if (JsonReader.Instance.playerInfoData.silver >= _cost)
                     JsonReader.Instance.playerInfoData.silver -= _cost;
                 else
                     isBought = false;
                 break;
-            case Currency.金:
+            case Currency.gold:
                 if (JsonReader.Instance.playerInfoData.gold >= _cost)
                     JsonReader.Instance.playerInfoData.gold -= _cost;
                 else
@@ -139,13 +138,13 @@ public class StoreManager : SingletonPatternMono<StoreManager>
 
         switch (_currency)
         {
-            case Currency.铜:
+            case Currency.copper:
                 father = posUsd;
                 break;
-            case Currency.银:
+            case Currency.sliver:
                 father = posEur;
                 break;
-            case Currency.金:
+            case Currency.gold:
                 father = posCny;
                 break;
             default:

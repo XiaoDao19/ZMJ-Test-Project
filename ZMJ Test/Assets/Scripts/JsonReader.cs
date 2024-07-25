@@ -70,6 +70,11 @@ public class JsonReader : SingletonPatternMono<JsonReader>
         string jsonContent = System.IO.File.ReadAllText(filePath, Encoding.UTF8);
 
         _playerInfoData = JsonUtility.FromJson<PlayerInfoData>(jsonContent);
+
+        foreach (GiftData giftData in _playerInfoData.playerGifts)
+        {
+            giftData.ConvertCurrency();
+        }
     }
 
     public IEnumerator SavePlayerInfoJson()
@@ -90,7 +95,7 @@ public class JsonReader : SingletonPatternMono<JsonReader>
         playerInfoData.playerGifts = playerInfoData.playerGifts.OrderBy(giftData => giftData.giftId).ToList();
     }
 
-    #region Not Used
+    #region Didn't Used
     //private void readgiftpackjson()
     //{
     //    string filepath = system.io.path.combine(jsonfilepath, jsonfilename_giftpack + ".json");

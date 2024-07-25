@@ -52,26 +52,26 @@ public class StoreSlot : MonoBehaviour,IPointerClickHandler
 
         switch (giftData.currency)
         {
-            case Currency.铜:
+            case Currency.copper:
                 color = StoreManager.Instance.color_Copper.ToHexString();
                 break;
-            case Currency.银:
+            case Currency.sliver:
                 color = StoreManager.Instance.color_Silver.ToHexString();
                 break;
-            case Currency.金:
+            case Currency.gold:
                 color = StoreManager.Instance.color_Gold.ToHexString();
                 break;
             default:
                 break;
         }
 
-        text.text = giftData.giftPrice.ToString() + "<color=#" + color + ">" + giftData.currency + "</color>";
+        text.text = giftData.giftPrice.ToString() + "<color=#" + color + ">" + giftData.GetCurrency() + "</color>";
 
         if (giftData.giftBuyTimes <= 0)
         {
             sellOut.SetActive(true);
 
-            StoreManager.Instance.giftTips.SetActive(false);
+            StoreManager.Instance.giftInfoTips.SetActive(false);
 
             buyTimeEnough = false;
         }
@@ -103,15 +103,15 @@ public class StoreSlot : MonoBehaviour,IPointerClickHandler
 
         switch (giftData.currency)
         {
-            case Currency.铜:
+            case Currency.copper:
                 if (JsonReader.Instance.playerInfoData.copper >= giftData.giftPrice)
                     moneyEnough = true;
                 break;
-            case Currency.银:
+            case Currency.sliver:
                 if (JsonReader.Instance.playerInfoData.silver >= giftData.giftPrice)
                     moneyEnough = true;
                 break;
-            case Currency.金:
+            case Currency.gold:
                 if (JsonReader.Instance.playerInfoData.gold >= giftData.giftPrice)
                     moneyEnough = true;
                 break;

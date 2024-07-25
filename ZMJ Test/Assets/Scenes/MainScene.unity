@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196248959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d128b27d97dab84e890a9254e7d0a5e, type: 3}
   m_Name: 
@@ -1935,7 +1935,6 @@ MonoBehaviour:
     silver: 0
     gold: 0
     playerGifts: []
-  giftTips: {fileID: 0}
   giftInfoTips: {fileID: 1708562191}
   text_MoneyUsd: {fileID: 1208375207}
   text_MoneyEur: {fileID: 457017395}

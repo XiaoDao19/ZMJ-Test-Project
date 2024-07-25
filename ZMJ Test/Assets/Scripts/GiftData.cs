@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum Currency 
 {
-    铜,银,金
+    copper,sliver,gold
 }
 
 [System.Serializable]
@@ -23,6 +23,36 @@ public class GiftData
 
     public void ConvertCurrency() 
     {
-        currency = (Currency)giftCurrency;
+        switch (giftCurrency)
+        {
+            case 0:
+                currency = Currency.copper;
+                break;
+            case 1:
+                currency = Currency.sliver;
+                break;
+            case 2:
+                currency = Currency.gold;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public string GetCurrency() 
+    {
+        switch (currency)
+        {
+            case Currency.copper:
+                return "铜";
+            case Currency.sliver:
+                return "银";
+            case Currency.gold:
+                return "金";
+            default:
+                break;
+        }
+
+        return "钱";
     }
 }
